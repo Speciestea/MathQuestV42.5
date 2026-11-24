@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "firebase": "^12.15.0"
+  },
+  "scripts": {
+    "test": "npm run test:firestore-rules && npm run test:registration-flow",
+    "test:firestore-rules": "npx --yes firebase-tools@14.15.2 --config firebase.test.json emulators:exec --only firestore --project demo-mathquest-rules \"node scripts/test_firestore_rules.mjs\"",
+    "test:registration-flow": "npm --prefix functions run build && npx --yes firebase-tools@14.15.2 --config firebase.test.json emulators:exec --only auth,firestore --project demo-mathquest-rules \"node scripts/test_registration_flow.mjs\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.0"
+  }
+}
